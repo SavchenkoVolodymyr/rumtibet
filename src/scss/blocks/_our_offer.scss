@@ -1,0 +1,58 @@
+@use './helpers/abstracts' as *;
+
+.content__img_all_wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	flex: 0 0 51rem;
+}
+.content__img_wrap {
+	width: 25rem;
+	height: 25rem;
+	overflow: hidden;
+	&.content__img_wrap--l {
+		border-radius: 0 5rem 0 5rem;
+	}
+	&.content__img_wrap--r {
+		border-radius: 5rem 0 5rem 0;
+	}
+	.content__img {
+		@extend %cover_img;
+	}
+}
+.card_features {
+	display: flex;
+	column-gap: 1.6rem;
+}
+.card_features__img_wrap {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 5rem;
+	height: 5rem;
+	border-radius: 0.4rem;
+	&.card_features__img_wrap--grey {
+		background-color: $color_ligh_grey;
+	}
+	&.card_features__img_wrap--blue {
+		background-color: $color_blue;
+	}
+	&.card_features__img_wrap--yellow {
+		background-color: $color_ligh_yellow;
+	}
+}
+.card_features__pic {
+	display: block;
+	width: 3.6rem;
+	height: 3.6rem;
+	.card_features__img {
+		@extend %contain_img;
+	}
+}
+.card_features__title {
+	font-size: 1.8rem;
+	font-weight: 700;
+	line-height: 1.1;
+	letter-spacing: 0.012em;
+}

@@ -1,0 +1,90 @@
+@use '../variables' as *;
+@use '../mixins/breakpoints' as *;
+
+
+@mixin st_btn {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	text-align: center;
+	white-space: nowrap;
+
+	cursor: pointer;
+	text-decoration: none;
+}
+
+//color extends
+%color_btn_1 {
+	@include st_btn;
+
+	font-weight: 600;
+	color:$color_ligh_grey;
+	background-color:$color_accent;
+	transition: 0.5s ease;
+	border: 1px solid $color_accent;
+
+	&:hover {
+		background-color: $color_ligh_grey;
+		color: $color_accent;
+		transform: scale(1.1);
+	}
+}
+%color_btn_white {
+	font-weight: 700;
+	color:$color_accent;
+	background-color:$color_ligh_grey;
+	transition: 0.5s ease;
+	border: 1px solid $color_accent;
+
+	&:hover {
+		background-color: $color_accent;
+		color: $color_ligh_grey;
+		transform: scale(1.1);
+	}
+}
+
+//size extends
+%btn_size_1 {
+	min-width: 18.1rem;
+	height: 5.2rem;
+	padding: 0 3.6rem;
+
+	line-height: 5.2rem;
+	font-size: 1.6rem;
+
+	border-radius: 0.4rem;
+}
+
+%btn_size_2 {
+	min-width: 15.7rem;
+	height: 4.4rem;
+	padding: 0 2.4rem;
+
+	line-height: 4.4rem;
+	font-size: 1.6rem;
+
+	border-radius: 0.4rem;
+}
+
+
+.button_bace {
+	@extend %color_btn_1;
+	@extend %btn_size_1;
+}
+.button_bace--litle{
+	@extend %color_btn_1;
+	@extend %btn_size_2;
+}
+.button_bace--white{
+	@extend %color_btn_white;
+	@extend %btn_size_1;
+}
+
+
+%test {
+	background-color: aqua;
+}
+@mixin test_2 {
+	color: red;
+}

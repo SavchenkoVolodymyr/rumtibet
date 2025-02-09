@@ -1,0 +1,22 @@
+@use './helpers/abstracts' as *;
+
+.photo_gallery{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+.photo_gallery__pic{
+    display: block;
+    height: 25rem;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background-color:red;
+    &.photo_gallery__pic--big{
+        grid-column: span 2;
+    }
+    .photo_gallery__img{
+        @extend %cover_img;
+    } 
+}

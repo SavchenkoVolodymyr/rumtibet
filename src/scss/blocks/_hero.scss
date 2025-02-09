@@ -1,0 +1,39 @@
+@use './helpers/abstracts' as *;
+.hero__in {
+	height: 82.1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+}
+.hero__title {
+	font-size: 5rem;
+	font-weight: 700;
+	line-height: 1.5;
+	letter-spacing: 0.02em;
+	margin-bottom: 4.1rem;
+	color: $color_ligh_grey;
+}
+.hero__form {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	height: 16.1rem;
+	border-radius: 1rem;
+    padding-top: 4rem;
+	padding-inline: 4.3rem;
+	background: $color_hero_form;
+	backdrop-filter: blur(6px);
+}
+.form__input {
+	width: 27rem;
+	height: 5.2rem;
+	border-radius: 0.8rem;
+	border: 1px solid $colr_form_border;
+    margin-bottom: 0.8rem;
+	background: transparent;
+}
+.form__input_deskr{
+font-size: 1.4rem;
+line-height: 1.5;
+color: $color_ligh_grey;
+}

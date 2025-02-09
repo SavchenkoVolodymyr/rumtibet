@@ -1,0 +1,29 @@
+@use './helpers/abstracts' as *;
+
+.our_hike__player_wrap {
+	position: relative;
+	width: 48rem;
+	height: 52.6rem;
+}
+.our_hike__img_wrap,
+.our_hike__video_wrap {
+    position: absolute;
+	display: block;
+	width: 35rem;
+	height: 40rem;
+	border-radius: 2.4rem;
+	overflow: hidden;
+}
+.our_hike__img {
+	@extend %cover_img;
+}
+.our_hike__video_wrap{
+    bottom: 0;
+    right: 0;
+    background-color: aqua;
+}
+.section__descr{
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+}

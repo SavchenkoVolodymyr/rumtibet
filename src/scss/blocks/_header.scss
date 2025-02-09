@@ -1,0 +1,47 @@
+@use './helpers/abstracts' as *;
+
+.header {
+	position: absolute;
+    top: 1.6rem;
+	width: 100%;
+}
+.header__in {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.header__logo {
+	display: block;
+	width: 13.7rem;
+	height: 7.2rem;
+	.header__logo_img {
+		@extend %contain_img;
+	}
+}
+.header__menu {
+	display: flex;
+	align-items: center;
+	column-gap: 4.9rem;
+}
+.header__list {
+	display: flex;
+	align-items: center;
+	column-gap: 2.4rem;
+	list-style: none;
+}
+.header__item_link {
+    display: block;
+	font-size: 1.8rem;
+	font-weight: 600;
+	line-height: 1.4;
+	text-decoration: none;
+	color: $color_ligh_grey;
+    transition: all 0.3s ease;
+
+    &:hover{
+        transform: scale(1.2);
+    }
+}
+.header__advice {
+	letter-spacing: 0.012em;
+}

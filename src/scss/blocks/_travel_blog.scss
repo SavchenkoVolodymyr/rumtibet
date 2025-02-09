@@ -1,0 +1,67 @@
+@use './helpers/abstracts' as *;
+
+.travel_blog_wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	margin-bottom: 5rem;
+}
+.travel_blog {
+	width: calc(100% / 2 - 2rem * (2 - 1) / 2);
+	display: flex;
+	column-gap: 2.4rem;
+	padding: 1.6rem;
+	box-shadow: 0 0 1.5rem 0 #18121e1f;
+	box-shadow: 0px 0px 15px 0px rgba($color_black_alternative, 12%);
+	background-color: $color_ligh_grey;
+}
+.travel_blog__pic {
+	display: block;
+	width: 23rem;
+	height: 28rem;
+	border-radius: 0.6rem;
+	overflow: hidden;
+	flex-shrink: 0;
+	.travel_blog__img {
+		@extend %cover_img;
+	}
+}
+.travel_blog__descr {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.travel_blog__title {
+	margin-bottom: 2.4rem;
+	text-decoration-skip-ink: none;
+	transition: all $transition_dur ease-in-out;
+	.travel_blog__descr:hover & {
+		text-decoration: underline;
+		color: $color_accent;
+	}
+}
+.travel_blog__text {
+	position: relative;
+	height: 10rem;
+	width: 29.4rem;
+	overflow-y: hidden;
+	margin-bottom: 2.4rem;
+	text-overflow: ellipsis;
+	flex-grow: 1;
+}
+.travel_blog__bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.travel_blog__date {
+	color: $color_subtitle;
+}
+.travel_blog__link{
+color: $color_accent;
+text-decoration: none;
+.travel_blog__descr:hover &{
+	text-decoration:underline;
+}
+
+}
