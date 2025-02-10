@@ -19,7 +19,7 @@
 	justify-content: space-between;
 	height: 16.1rem;
 	border-radius: 1rem;
-    padding-top: 4rem;
+	padding-top: 4rem;
 	padding-inline: 4.3rem;
 	background: $color_hero_form;
 	backdrop-filter: blur(6px);
@@ -27,13 +27,85 @@
 .form__input {
 	width: 27rem;
 	height: 5.2rem;
+	padding: 1.6rem 1.4rem;
 	border-radius: 0.8rem;
 	border: 1px solid $colr_form_border;
-    margin-bottom: 0.8rem;
+	margin-bottom: 0.8rem;
 	background: transparent;
 }
-.form__input_deskr{
-font-size: 1.4rem;
-line-height: 1.5;
-color: $color_ligh_grey;
+.form__input_deskr {
+	display: block;
+	font-size: 1.4rem;
+	line-height: 1.5;
+	color: $color_ligh_grey;
+}
+
+.form__item {
+	position: relative;
+}
+// [data-value]{
+// 	position: relative;
+// }
+// [data-value]::before{
+// content: attr(data-value);
+// position: absolute;
+// width: 27rem;
+// height: 5.2rem;
+// height: 100%;
+// color: black;
+// text-align: center;
+// padding: 1.7rem 1.6rem ;
+// font-family: Nunito Sans;
+// 	font-weight: 700;
+// 	font-size: 1.6rem;
+// 	line-height: 1.5;
+// 	text-align: left;
+// 	color: $color_ligh_grey;
+// 	background: $color_hero_form;
+
+// }
+.dropdown__input_hidden {
+	display: none;
+}
+.dropdown__button {
+	position: relative;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 27rem;
+	height: 5.2rem;
+	padding: 1.4rem 3.4rem 1.4rem 1.6rem;
+	border-radius: 0.8rem;
+	border: 1px solid $colr_form_border;
+	margin-bottom: 0.8rem;
+	cursor: pointer;
+	background: transparent;
+}
+.dropdown__button::after {
+	content: '';
+	position: absolute;
+	top: 1.6;
+	right: 1.6rem;
+	width: 2rem;
+	height: 2rem;
+	pointer-events: none;
+	background: center / contain no-repeat url(../imgs/hero/down_arrow.svg);
+}
+.dropdown__list {
+	display: none;
+	position: absolute;
+	width: 27rem;
+	height: 12rem;
+	overflow-y: auto;
+	border-radius: 0.8rem;
+	padding-inline: 1.4rem;
+	cursor: pointer;
+	background-color: rgba($color_accent, 0.75);
+	&.dropdown__list--visible {
+		display: block;
+	}
+}
+
+.dropdown__item:hover {
+	background-color: $color_accent;
 }
