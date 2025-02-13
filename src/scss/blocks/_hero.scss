@@ -1,17 +1,30 @@
 @use './helpers/abstracts' as *;
 .hero__in {
-	height: 82.1rem;
+	
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
+	@include bp($point_2, min){
+	height: 82.1rem;	
+	}
+	@include bp($point_3){
+		height: 79rem;
+	}
 }
 .hero__title {
-	font-size: 5rem;
+	
 	font-weight: 700;
 	line-height: 1.5;
 	letter-spacing: 0.02em;
 	margin-bottom: 4.1rem;
 	color: $color_ligh_grey;
+	@include bp($point_2, min){
+		font-size: 5rem;
+	}
+	@include bp ($point_3){
+		@include adapt_font(44, 50, 768, 1023);
+	}
+	// @include adapt_font(44, 50, 768, 1023);
 }
 .hero__form {
 	display: flex;

@@ -14,3 +14,6 @@
 
 // @include bp($point_1, min)
 // @include bp($point_2)
+@mixin adapt_font($min_font, $max_font, $min_vw, $max_vw) {
+	font-size: calc(#{$min_font}px + ($max_font - $min_font) * ((100vw - #{$min_vw}px) / ($max_vw - $min_vw)));
+}

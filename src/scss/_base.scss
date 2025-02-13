@@ -1,9 +1,15 @@
 @use './helpers/abstracts' as *;
 
 html {
+	@include bp($point_2, min){
+		font-size: calc(100dvw / 1920 * 10);
+	}
+	@include bp($point_3){
+		font-size: 10px;
+	}
 	// font-size: calc(100dvw / 1920 * 10);
 
-	font-size: 10px;
+	// font-size: 10px;
 }
 
 html,
@@ -109,10 +115,16 @@ body {
 }
 
 .container {
-	max-width: 122rem;
+	max-width: 122rem;	
 	width: 100%;
 	padding: 0 2rem;
 	margin: 0 auto;
+	// @include bp($point_2, min){
+	// max-width: 122rem;	
+	// }
+	// @include bp($point_3){
+	// 	max-width: 76.8rem;
+	// }
 }
 .content {
 	display: flex;
