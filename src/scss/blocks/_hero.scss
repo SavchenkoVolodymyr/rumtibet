@@ -17,12 +17,14 @@
 	display: flex;
 	align-items: start;
 	justify-content: space-between;
-	height: 16.1rem;
 	border-radius: 1rem;
-	padding-top: 4rem;
+	@include bp($point_2, min){
+padding-top: 4rem;
 	padding-inline: 4.3rem;
+	height: 16.1rem;
 	background: $color_hero_form;
-	backdrop-filter: blur(6px);
+	backdrop-filter: blur(6px);	
+	}
 }
 .form__input {
 	width: 27rem;
@@ -42,31 +44,16 @@
 
 .form__item {
 	position: relative;
+	@include bp($point_3){
+		display: none;
+	}	
 }
-// [data-value]{
-// 	position: relative;
-// }
-// [data-value]::before{
-// content: attr(data-value);
-// position: absolute;
-// width: 27rem;
-// height: 5.2rem;
-// height: 100%;
-// color: black;
-// text-align: center;
-// padding: 1.7rem 1.6rem ;
-// font-family: Nunito Sans;
-// 	font-weight: 700;
-// 	font-size: 1.6rem;
-// 	line-height: 1.5;
-// 	text-align: left;
-// 	color: $color_ligh_grey;
-// 	background: $color_hero_form;
 
-// }
+.dropdawn_date__box_hiden,
 .dropdown__input_hidden {
 	display: none;
 }
+.dropdown_date__button,
 .dropdown__button {
 	position: relative;
 	text-overflow: ellipsis;
@@ -74,23 +61,34 @@
 	white-space: nowrap;
 	width: 27rem;
 	height: 5.2rem;
-	padding: 1.4rem 3.4rem 1.4rem 1.6rem;
+	padding: 1.4rem 3.6rem 1.4rem 1.6rem;
 	border-radius: 0.8rem;
 	border: 1px solid $colr_form_border;
 	margin-bottom: 0.8rem;
 	cursor: pointer;
 	background: transparent;
 }
+.dropdown_date__button::after{
+	content: '';
+	position: absolute;
+	top: 1.6rem;
+	right:1.6rem;
+	width: 1.8rem;
+	height: 1.8rem;
+	pointer-events: none;
+	background: center / contain no-repeat url(../imgs/hero/formkit_date.svg);
+}
 .dropdown__button::after {
 	content: '';
 	position: absolute;
-	top: 1.6;
+	top: 1.6rem;
 	right: 1.6rem;
 	width: 2rem;
 	height: 2rem;
 	pointer-events: none;
 	background: center / contain no-repeat url(../imgs/hero/down_arrow.svg);
 }
+
 .dropdown__list {
 	display: none;
 	position: absolute;
@@ -105,10 +103,6 @@
 		display: block;
 	}
 }
-
 .dropdown__item:hover {
 	background-color: $color_accent;
-}
-.fff{
-	background-color: aqua;
 }

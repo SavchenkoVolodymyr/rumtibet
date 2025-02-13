@@ -18,16 +18,36 @@
 		@extend %contain_img;
 	}
 }
+.burger_menu{
+	width: 3rem;
+	height: 3rem;
+	@include bp($point_2, min){
+		display: none;
+	}
+	@include bp ($point_3){
+	display: block;	
+	}
+	.burger_menu__ico{
+	@extend %contain_img;	
+	}
+}
 .header__menu {
 	display: flex;
 	align-items: center;
 	column-gap: 4.9rem;
+	@include bp($point_2, min){
+	display: flex;	
+	}
+	@include bp($point_3){
+		display: none;
+	}
 }
 .header__list {
 	display: flex;
 	align-items: center;
 	column-gap: 2.4rem;
 	list-style: none;
+	
 }
 .header__item_link {
     display: block;

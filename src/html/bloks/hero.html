@@ -5,43 +5,6 @@
 				Насладись прогулкой в горах <br />
 				с командой единомышленников
 			</h1>
-			<!-- <form class="hero__form form" action="#">
-                <div class="form__item"> 
-                    <div class="for__item_decor" data-value="Локация для тура">
-                    <select class="form__input" name="" id="" >
-                          <option value="">Локация 1</option>
-                          <option value="">Локация 2</option>
-                          <option value="">Локация 3</option>
-                          <option value="">Локация 4</option>
-                          <option value="">Локация 5</option>
-                      </select>
-                      </div>
-                      <label for="" class="form__input_deskr">выберите из списка</label>
-                </div>
-                <div class="form__item">
-                    <input class="form__input" value="Дата похода" type="text">
-                    <div class="form__input_deskr">укажите диапазон</div>
-                </div>
-                <div class="form__item">
-                    <div class="for__item_decor">
-                    <select class="form__input" name="" id="">
-                        <option value="">Участник 1</option>
-                        <option value="">Участник 2</option>
-                        <option value="">Участник 3</option>
-                        <option value="">Участник 4</option>
-                        <option value="">Участник 5</option>
-                        <option value="">Участник 6</option>
-                        <option value="">Участник 7</option>
-                        <option value="">Участник 8</option>
-                        <option value="">Участник 9</option>
-                    </select>
-                    </div>
-                    <div class="form__input_deskr">минимум 4 человека</div>
-                </div>
-                <div class="form__item">
-                    <input type="button" class="button_bace button_bace--white" value="Найти программу">
-                </div>
-            </form> -->
             <form class="hero__form form" action="#">
                 <div class="form__item dropdown" > 
                     <button type="button"  class="dropdown__button hero_form_text">Локация для тура</button>
@@ -55,8 +18,12 @@
                       <input type="text" value="" name ="for_location" class="dropdown__input_hidden">
                       <div class="form__input_deskr">выберите из списка</div>
                 </div>
-                <div class="form__item">
-                    <input class="form__input" value="Дата похода" type="text">
+                <div class="form__item dropdown_date">
+                    <button type="button" class="dropdown_date__button hero_form_text">Дата похода</button>
+                    <div class="dropdawn_date__box_hiden">
+                        <input type="date" class="dropdown_date__input" name="date_start">
+                        <input type="date" class="dropdown_date__input" name="date_end">
+                    </div>
                     <div class="form__input_deskr">укажите диапазон</div>
                 </div>
                 <div class="form__item dropdown"> 
@@ -70,8 +37,8 @@
                       </ul>
                       <div class="form__input_deskr">минимум 4 человека</div>
                 </div>
-                <div class="form__item">
-                    <input type="button" class="button_bace button_bace--white" value="Найти программу">
+                <div class="form__submit ">
+                    <input type="button" class="button_bace button_bace--white form__submit_button" value="Найти программу">
                 </div>
             </form>
 		</div>
