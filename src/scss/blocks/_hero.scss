@@ -24,8 +24,14 @@
 	@include bp($point_2, min){
 		font-size: 5rem;
 	}
-	@include bp ($point_3){
+	@include bp_min-max ($point_4, $point_3){
 		@include adapt_font(44, 50, 768, 1023);
+	}
+	@include bp_min-max ($point_6, $point_5){
+		@include adapt_font(26, 44, 480, 767);
+	}
+	@include bp ($point_7){
+		@include adapt_font(32, 40, 375, 479);
 	}
 	
 	

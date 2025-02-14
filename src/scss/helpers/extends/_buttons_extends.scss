@@ -80,11 +80,3 @@
 	@extend %color_btn_white;
 	@extend %btn_size_1;
 }
-
-
-%test {
-	background-color: aqua;
-}
-@mixin test_2 {
-	color: red;
-}

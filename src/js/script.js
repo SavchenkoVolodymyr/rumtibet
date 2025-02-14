@@ -1,5 +1,19 @@
 const body = document.querySelector('body');
 
+// for burger
+
+function burger () {
+	const menuBurger = document.querySelector('.header__list');
+const burgerButton = document.querySelector('.burger_menu');
+burgerButton.addEventListener('click', function () {
+	menuBurger.classList.toggle('active');
+	burgerButton.classList.toggle('active');	
+})
+}
+burger ();
+
+
+
 document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	const dropdownButton = dropForAll.querySelector('.dropdown__button');
 	const dropdownList = dropForAll.querySelector('.dropdown__list');
