@@ -12,6 +12,12 @@
 	}
 }
 
+@mixin bp_min-max($min_width, $max_width){
+	@media screen and (min-width: $min_width) and (max-width: $max_width){
+		@content;
+	}
+}
+
 // @include bp($point_1, min)
 // @include bp($point_2)
 @mixin adapt_font($min_font, $max_font, $min_vw, $max_vw) {
