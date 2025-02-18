@@ -3,48 +3,40 @@
 .our_hike__player_wrap {
 	position: relative;
 	height: 52.6rem;
-	@include bp($point_2, min){
+	@include bp($point_2, min) {
 		width: 48rem;
 	}
-	@include bp ($point_3){
+	@include bp($point_3) {
 		width: 35rem;
 	}
 }
 .our_hike__img_wrap,
 .our_hike__video_wrap {
-    position: absolute;
+	position: absolute;
 	display: block;
 	width: 35rem;
 	height: 40rem;
 	border-radius: 2.4rem;
 	overflow: hidden;
 }
-.our_hike__img_wrap{
-@include bp($point_3){
-	display: none;
-}
+.our_hike__img_wrap {
+	@include bp($point_3) {
+		display: none;
+	}
 }
 .our_hike__img {
 	@extend %cover_img;
 }
-.our_hike__video_wrap{
-    background-color: aqua;
-	@include bp($point_2, min){
-	 bottom: 0;
-    right: 0;	
+.our_hike__video_wrap {
+	background-color: aqua;
+	@include bp($point_2, min) {
+		bottom: 0;
+		right: 0;
 	}
-	@include bp($point_3){
+	@include bp($point_3) {
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-	}
-}
-.section__descr{
-    display: flex;
-    flex-direction: column;
-    row-gap: 4rem;
-	@include bp ($point_3){
-		max-width: 35.8rem;
 	}
 }
 

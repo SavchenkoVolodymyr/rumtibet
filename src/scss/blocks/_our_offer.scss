@@ -2,14 +2,28 @@
 
 .content__img_all_wrap {
 	display: flex;
-	flex-wrap: wrap;
 	gap: 1rem;
-	flex: 0 0 51rem;
+	@include bp($point_2, min){
+	flex: 0 0 51rem;	
+	flex-wrap: wrap;
+	}
+	@include bp($point_3){
+		flex-direction: column;
+	}
+	@include bp($point_5){
+		display: none;
+	}
 }
 .content__img_wrap {
-	width: 25rem;
-	height: 25rem;
 	overflow: hidden;
+	@include bp($point_2, min){
+	width: 25rem;
+	height: 25rem;	
+	}
+	@include bp($point_3){
+		width: 18rem;
+		height: 18rem;		
+	}
 	&.content__img_wrap--l {
 		border-radius: 0 5rem 0 5rem;
 	}
