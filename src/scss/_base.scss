@@ -45,8 +45,14 @@ body {
 		line-height: 1.25;
 	}
 	&.subtitle_text--subscription {
-		font-size: 1.8rem;
+		
 		line-height: 1.1;
+		@include bp($point_2, min){
+		font-size: 1.8rem;
+		}
+		@include bp($point_3){
+			font-size: 1.6rem;
+		}
 	}
 }
 .section__title_wrap {
@@ -71,6 +77,9 @@ body {
 	}
 	&.secnion_title--subscription {
 		font-size: 2.6rem;
+		@include bp($point_3) {
+			font-size: 2.4rem;
+		}
 	}
 }
 .bace_text {
