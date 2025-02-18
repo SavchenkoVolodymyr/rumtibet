@@ -3,11 +3,25 @@
 	background-color: $color_accent;
 }
 .footer__in {
-	padding-top: 17.8rem;
+	@include bp($point_2, min){
+		padding-top: 17.8rem;
+	}
+	@include bp($point_3){
+		padding-top: 5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
 }
 .footer__top {
 	display: flex;
 	margin-bottom: 8rem;
+	@include bp($point_3){
+		flex-direction: column;
+		row-gap: 5rem;
+		max-width: 35.8rem;
+		align-items: start;
+	}
 }
 .footer__top_column:not(:last-child) {
 	padding-right: 2rem;
@@ -28,9 +42,14 @@
 	color: $color_white;
 }
 .about_the_company__descr {
-	max-width: 45.6rem;
 	flex-grow: 1;
 	color: $color_white;
+	@include bp($point_2, min){
+	max-width: 45.6rem;	
+	}
+	@include bp_min-max($point_4 ,$point_3){
+		max-width: 35.8rem;
+	}
 }
 .about_the_company__contact {
 	display: flex;
@@ -51,8 +70,8 @@
 }
 .about_the_company__pic {
 	display: block;
-	width: 2.7rem;
-	height: 2.7rem;
+	width: 3.2rem;
+	height: 3.2rem;
 	.about_the_company__ico {
 		@extend %contain_img;
 	}
@@ -104,13 +123,18 @@
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 2.4rem 0;
+	@include bp($point_2, min){
+	justify-content: space-between;	
+	}
+	@include bp($point_3){
+		flex-direction: column;
+	}
 }
 .footer__bottom::after{
 content: '';
 position: absolute;
-width: 200%;
+width: 400%;
 height: 100%;
 top: 0;
 left: 50%;
