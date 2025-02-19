@@ -11,7 +11,9 @@ html {
 
 	// font-size: 10px;
 }
-
+.body{
+	background-color: aqua;
+}
 html,
 body {
 	height: 100%;
@@ -104,10 +106,16 @@ body {
 	line-height: 1.4;
 }
 .card_descr__title {
-	font-size: 2.4rem;
+	
 	font-weight: 700;
 	line-height: 1.2;
 	color: $color_ligh_grey;
+	@include bp($point_2, min){
+	font-size: 2.4rem;	
+	}
+	@include bp($point_3){
+		font-size: 1.8rem;
+	}
 	&.card_descr__title--big_line {
 		line-height: 1.3;
 		color: $color_black_alternative;

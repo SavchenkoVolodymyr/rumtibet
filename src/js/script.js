@@ -2,24 +2,21 @@ const body = document.querySelector('body');
 
 // for burger
 
-function burger () {
+function burger() {
 	const menuBurger = document.querySelector('.header__list');
-const burgerButton = document.querySelector('.burger_menu');
-burgerButton.addEventListener('click', function () {
-	menuBurger.classList.toggle('active');
-	burgerButton.classList.toggle('active');	
-})
+	const burgerButton = document.querySelector('.burger_menu');
+	burgerButton.addEventListener('click', function () {
+		menuBurger.classList.toggle('active');
+		burgerButton.classList.toggle('active');
+	});
 }
-burger ();
-
-
+burger();
 
 document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	const dropdownButton = dropForAll.querySelector('.dropdown__button');
 	const dropdownList = dropForAll.querySelector('.dropdown__list');
 	const dropdownListAitems = dropdownList.querySelectorAll('.dropdown__item');
 	const dropdownInput = dropForAll.querySelector('.dropdown__input_hidden');
-
 
 	dropdownButton.addEventListener('click', function () {
 		dropdownList.classList.toggle('dropdown__list--visible');
@@ -28,14 +25,13 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	dropdownListAitems.forEach(function (listItem) {
 		listItem.addEventListener('click', function (e) {
 			e.stopPropagation();
-			if (listItem.classList.contains('active')){
-				dropdownButton.innerText = this.innerText;	
-			}else{
-			dropdownButton.innerText = this.innerText;
-			dropdownInput.value = this.dataset.value;
-			dropdownList.classList.remove('dropdown__list--visible');	
+			if (listItem.classList.contains('active')) {
+				dropdownButton.innerText = this.innerText;
+			} else {
+				dropdownButton.innerText = this.innerText;
+				dropdownInput.value = this.dataset.value;
+				dropdownList.classList.remove('dropdown__list--visible');
 			}
-			
 		});
 	});
 
@@ -51,23 +47,43 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 		dropdownListAitems.forEach(function (listItem) {
 			listItem.addEventListener('click', function (e) {
 				e.stopPropagation();
-				if (listItem.classList.contains('active')){
-				let dataAtrValue = listItem.dataset.value;
-				let remuveInput =  document.querySelector('[name = "'+dataAtrValue+'"]');
-				remuveInput.remove();
+				if (listItem.classList.contains('active')) {
+					let dataAtrValue = listItem.dataset.value;
+					let remuveInput = document.querySelector('[name = "' + dataAtrValue + '"]');
+					remuveInput.remove();
 					listItem.classList.remove('active');
-				}
-				else{
+				} else {
 					let newInput = document.createElement('input');
-				newInput.type = 'text';
-				newInput.value = this.dataset.value;
-				newInput.className = 'dropdown__input_hidden';
-				newInput.name = this.dataset.value;
-				dropdownList.after(newInput);
-				listItem.classList.add('active');
+					newInput.type = 'text';
+					newInput.value = this.dataset.value;
+					newInput.className = 'dropdown__input_hidden';
+					newInput.name = this.dataset.value;
+					dropdownList.after(newInput);
+					listItem.classList.add('active');
 				}
 			});
 		});
 	}
-	
 });
+
+function sliderShow() {
+	let offset = 0;
+	const sliderLine = document.querySelector('.slider_line');
+
+	document.querySelector('.slider-next').addEventListener('click', function () {
+		offset = offset + 285;
+		if (offset > 570) {
+			offset = 0;
+		}
+		sliderLine.style.left = -offset + 'px';
+	});
+
+	document.querySelector('.slider-prev').addEventListener('click', function () {
+		offset = offset - 285;
+		if (offset < 0) {
+			offset = 570;
+		}
+		sliderLine.style.left = -offset + 'px';
+	});
+}
+sliderShow();

@@ -2,41 +2,52 @@
 
 .popular_tours__cards {
 	display: flex;
-	column-gap: 2rem;
-margin-bottom: 5rem;
+	@include bp($point_2, min) {
+		column-gap: 2rem;
+		margin-bottom: 5rem;
+	}
+	@include bp($point_3) {
+		width: 85.5rem;
+		position: relative;
+		left: 0;
+		transition: all $transition_dur ease;
+	}
 }
 
 .popular_tours_first_layer {
 	position: relative;
-	width: calc(100% / 3 - 2rem * (3 - 1) / 3);
-	height: 50rem;
 	border-radius: 3.2rem;
 	overflow: hidden;
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	&.popular_tours__first_layer--1 {
-		background-image: url(../../imgs/popular_tours/lake_with_boat.jpg);
+		background-image: url(../imgs/popular_tours/lake_with_boat.jpg);
 	}
 	&.popular_tours__first_layer--2 {
-		background-image: url(../../imgs/popular_tours/night_in_the_mountains.jpg);
+		background-image: url(../imgs/popular_tours/night_in_the_mountains.jpg);
 	}
 	&.popular_tours__first_layer--3 {
-		background-image: url(../../imgs/popular_tours/yoga_in_the_mountains.jpg);
+		background-image: url(../imgs/popular_tours/yoga_in_the_mountains.jpg);
 	}
-@media (hover: hover){
-	&:hover .popular_tours__second_layer {
-		top: 0;
+	@include bp($point_2, min) {
+		width: calc(100% / 3 - 2rem * (3 - 1) / 3);
+		height: 50rem;
 	}
-}
-@media (hover: none) {
-	&:focus .popular_tours__second_layer {
-		top: 0;
+	@include bp($point_3) {
+		width: 28.5rem;
+		height: 40rem;
 	}
-}
-	// &:hover .popular_tours__second_layer {
-	// 	top: 0;
-	// }
+	@media (hover: hover) {
+		&:hover .popular_tours__second_layer {
+			top: 0;
+		}
+	}
+	@media (hover: none) {
+		&:focus .popular_tours__second_layer {
+			top: 0;
+		}
+	}
 }
 .popular_tours__second_layer {
 	position: absolute;
@@ -44,38 +55,56 @@ margin-bottom: 5rem;
 	flex-direction: column;
 	height: 100%;
 	left: 0;
-	top: 41rem;
-	padding: 3rem 3.2rem 3rem;
 	backdrop-filter: blur(6px);
 	transition: all $transition_dur ease-in-out;
+	@include bp($point_2, min) {
+		top: 41rem;
+		padding: 3rem 3.2rem 3rem;
+	}
+	@include bp($point_3) {
+		top: 33rem;
+		padding: 2.4rem;
+	}
 }
-.element_star{
+.element_star {
 	display: flex;
 	align-items: center;
 	position: absolute;
-	top: 5rem;
 	right: 0;
 	padding: 0.4rem 0.8rem;
 	column-gap: 0.4rem;
 	border-radius: 0.4rem 0 0 0.4rem;
 	backdrop-filter: blur(4px);
 	background-color: rgba($color_ligh_grey, 0.4);
+	@include bp($point_2, min) {
+		top: 5rem;
+	}
+	@include bp($point_3) {
+		top: 3.7rem;
+	}
 }
-.element_star__pic{
+.element_star__pic {
 	display: block;
 	width: 2.4rem;
 	height: 2.4rem;
-	.element_star__img{
+	.element_star__img {
 		@extend %contain_img;
 	}
 }
-.element_star__text{
+.element_star__text {
 	color: $color_accent;
 }
 .card_descr__title_block {
 	display: flex;
-	column-gap: 3.5rem;
-	margin-bottom: 3.8rem;
+
+	@include bp($point_2, min) {
+		column-gap: 3.5rem;
+		margin-bottom: 3.8rem;
+	}
+	@include bp($point_3) {
+		justify-content: space-between;
+		margin-bottom: 1.9rem;
+	}
 }
 .card_descr__title_text {
 	font-size: 1.4rem;
@@ -84,19 +113,44 @@ margin-bottom: 5rem;
 	color: $color_ligh_grey;
 }
 .card_descr__title_price {
-	font-size: 2rem;
 	font-weight: 700;
 	line-height: 1.2;
-	padding: 0.8rem 1.6rem;
 	border-radius: 0.4rem;
 	align-self: center;
 	color: $color_ligh_grey;
 	background-color: rgba($color_white, 30%);
+	@include bp($point_2, min) {
+		font-size: 2rem;
+		padding: 0.8rem 1.6rem;
+	}
+	@include bp($point_3) {
+		font-size: 1.6rem;
+		width: 7.3rem;
+		padding: 0.6rem 1.2rem;
+	}
 }
 .card_descr__text {
-	font-size: 1.6rem;
 	line-height: 1.5;
 	color: $color_ligh_grey;
 	flex-grow: 1;
+	@include bp($point_2, min) {
+		font-size: 1.6rem;
+	}
+	@include bp($point_3) {
+		font-size: 1.4rem;
+	}
 }
-
+.slider{
+	overflow: hidden;
+	width: 28.5rem;
+	height: 40rem;
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 3.2rem;
+}
+.slider-next,
+.slider-prev{
+	width: 5rem;
+	height: 5rem;
+}
