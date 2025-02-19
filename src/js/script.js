@@ -71,8 +71,8 @@ document.querySelectorAll('.slider').forEach(function (slider) {
 	
 	let offset = 0;
 	const sliderLine = slider.querySelector('.slider_line');
-	const cardWidht = slider.querySelector('.card').clientWidth;
-	const numberOfOlements = slider.querySelectorAll('.card').length;
+	const elemWidht = slider.querySelector('.slider_line__item').clientWidth;
+	const numberOfOlements = slider.querySelectorAll('.slider_line__item').length;
 
 	slider.addEventListener('touchstart', hendleTouchStart, false);
 	slider.addEventListener('touchend', handleTouchend, false);
@@ -91,17 +91,17 @@ document.querySelectorAll('.slider').forEach(function (slider) {
 		let x2 = event.changedTouches[0].clientX;
 		let xDiff = x2 - x1;
 		if (xDiff < 0 && Math.abs(xDiff) > 50) {
-			offset = offset + cardWidht;
-				if (offset > (numberOfOlements - 1) * cardWidht) {
+			offset = offset + elemWidht;
+				if (offset > (numberOfOlements - 1) * elemWidht) {
 					offset = 0;
 				}
 				sliderLine.style.left = -offset + 'px';
 			
 		}
 		if (xDiff > 0 && Math.abs(xDiff) > 50){
-			offset = offset - cardWidht;
+			offset = offset - elemWidht;
 		if (offset < 0) {
-			offset = (numberOfOlements - 1) * cardWidht;
+			offset = (numberOfOlements - 1) * elemWidht;
 		}
 		sliderLine.style.left = -offset + 'px';
 		}

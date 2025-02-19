@@ -128,7 +128,12 @@ body {
 }
 .section {
 	width: 100%;
-	padding: 8.2rem 0;
+	@include bp($point_2, min){
+	padding: 8.2rem 0;	
+	}
+	@include bp($point_3){
+		padding: 5rem 0;	
+	}
 	&.secnion--hero {
 		background-image: url(../imgs/hero/mountains.jpg);
 		background-position: center;
@@ -146,7 +151,9 @@ body {
 		background-color: $color_secnion_bg;
 	}
 	&.section--big_padding_bottom {
-		padding-bottom: 19.8rem;
+		@include bp($point_2, min){
+		padding-bottom: 19.8rem;	
+		}
 	}
 }
 
