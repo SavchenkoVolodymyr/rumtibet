@@ -66,24 +66,45 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	}
 });
 
-function sliderShow() {
+document.querySelectorAll('.slider').forEach(function (slider) {
+	console.log(slider);
+	
 	let offset = 0;
-	const sliderLine = document.querySelector('.slider_line');
+	const sliderLine = slider.querySelector('.slider_line');
+	const cardWidht = slider.querySelector('.card').clientWidth;
+	const numberOfOlements = slider.querySelectorAll('.card').length;
 
-	document.querySelector('.slider-next').addEventListener('click', function () {
-		offset = offset + 285;
-		if (offset > 570) {
-			offset = 0;
+	slider.addEventListener('touchstart', hendleTouchStart, false);
+	slider.addEventListener('touchend', handleTouchend, false);
+
+	let x1 = null;
+
+	function hendleTouchStart(event) {
+		const firstTouch = event.touches[0];
+		x1 = firstTouch.clientX;
+	}
+
+	function handleTouchend(event) {
+		if (!x1) {
+			return false;
 		}
-		sliderLine.style.left = -offset + 'px';
-	});
-
-	document.querySelector('.slider-prev').addEventListener('click', function () {
-		offset = offset - 285;
+		let x2 = event.changedTouches[0].clientX;
+		let xDiff = x2 - x1;
+		if (xDiff < 0 && Math.abs(xDiff) > 50) {
+			offset = offset + cardWidht;
+				if (offset > (numberOfOlements - 1) * cardWidht) {
+					offset = 0;
+				}
+				sliderLine.style.left = -offset + 'px';
+			
+		}
+		if (xDiff > 0 && Math.abs(xDiff) > 50){
+			offset = offset - cardWidht;
 		if (offset < 0) {
-			offset = 570;
+			offset = (numberOfOlements - 1) * cardWidht;
 		}
 		sliderLine.style.left = -offset + 'px';
-	});
-}
-sliderShow();
+		}
+	}
+	
+});
