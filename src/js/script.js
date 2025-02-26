@@ -43,16 +43,11 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 		dropdownListAitems.forEach(function (listItem) {
 			listItem.addEventListener('click', function (e) {
 				e.stopPropagation();
-				// let currentValueText = dropdownButton.innerText;
-				// let additionalValueText = listItem.innerText;
-				// console.log(currentValueText);
-
-				// dropdownButton.innerText = additionalValueText + this.innerText;
-				if (listItem.classList.contains('active')) {
+				if (listItem.classList.contains('marked')) {
 					let dataAtrValue = listItem.dataset.value;
 					let remuveInput = document.querySelector('[name = "' + dataAtrValue + '"]');
 					remuveInput.remove();
-					listItem.classList.remove('active');
+					listItem.classList.remove('marked');
 				} else {
 					let newInput = document.createElement('input');
 					newInput.type = 'text';
@@ -60,7 +55,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 					newInput.className = 'dropdown__input_hidden';
 					newInput.name = this.dataset.value;
 					dropdownList.after(newInput);
-					listItem.classList.add('active');
+					listItem.classList.add('marked');
 				}
 			});
 		});
