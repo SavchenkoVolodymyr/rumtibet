@@ -22,31 +22,32 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 		dropdownList.classList.toggle('dropdown__list--visible');
 	});
 
-	dropdownListAitems.forEach(function (listItem) {
-		listItem.addEventListener('click', function (e) {
-			e.stopPropagation();
-			if (listItem.classList.contains('active')) {
-				dropdownButton.innerText = this.innerText;
-			} else {
-				dropdownButton.innerText = this.innerText;
-				dropdownInput.value = this.dataset.value;
-				dropdownList.classList.remove('dropdown__list--visible');
-			}
-		});
-	});
-
 	document.addEventListener('click', function (e) {
 		if (e.target !== dropdownButton) {
 			dropdownList.classList.remove('dropdown__list--visible');
 		}
 	});
 
-	// для декількох значень
+	if (dropdownButton.dataset.form == 'location') {
+		dropdownListAitems.forEach(function (listItem) {
+			listItem.addEventListener('click', function (e) {
+				e.stopPropagation();
+				dropdownButton.innerText = this.innerText;
+				dropdownInput.value = this.dataset.value;
+				dropdownList.classList.remove('dropdown__list--visible');
+			});
+		});
+	}
 
 	if (dropdownButton.dataset.form == 'participant') {
 		dropdownListAitems.forEach(function (listItem) {
 			listItem.addEventListener('click', function (e) {
 				e.stopPropagation();
+				// let currentValueText = dropdownButton.innerText;
+				// let additionalValueText = listItem.innerText;
+				// console.log(currentValueText);
+
+				// dropdownButton.innerText = additionalValueText + this.innerText;
 				if (listItem.classList.contains('active')) {
 					let dataAtrValue = listItem.dataset.value;
 					let remuveInput = document.querySelector('[name = "' + dataAtrValue + '"]');
@@ -66,9 +67,11 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	}
 });
 
+// for slider
+
 document.querySelectorAll('.slider').forEach(function (slider) {
 	console.log(slider);
-	
+
 	let offset = 0;
 	const sliderLine = slider.querySelector('.slider_line');
 	const elemWidht = slider.querySelector('.slider_line__item').clientWidth;
@@ -92,19 +95,17 @@ document.querySelectorAll('.slider').forEach(function (slider) {
 		let xDiff = x2 - x1;
 		if (xDiff < 0 && Math.abs(xDiff) > 50) {
 			offset = offset + elemWidht;
-				if (offset > (numberOfOlements - 1) * elemWidht) {
-					offset = 0;
-				}
-				sliderLine.style.left = -offset + 'px';
-			
+			if (offset > (numberOfOlements - 1) * elemWidht) {
+				offset = 0;
+			}
+			sliderLine.style.left = -offset + 'px';
 		}
-		if (xDiff > 0 && Math.abs(xDiff) > 50){
+		if (xDiff > 0 && Math.abs(xDiff) > 50) {
 			offset = offset - elemWidht;
-		if (offset < 0) {
-			offset = (numberOfOlements - 1) * elemWidht;
-		}
-		sliderLine.style.left = -offset + 'px';
+			if (offset < 0) {
+				offset = (numberOfOlements - 1) * elemWidht;
+			}
+			sliderLine.style.left = -offset + 'px';
 		}
 	}
-	
 });
