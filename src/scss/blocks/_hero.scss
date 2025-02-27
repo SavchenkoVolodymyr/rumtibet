@@ -91,7 +91,7 @@ padding-top: 4rem;
 	cursor: pointer;
 	background: transparent;
 }
-.dropdown_date__button::after{
+.dropdown__button_date::after{
 	content: '';
 	position: absolute;
 	top: 1.6rem;
@@ -101,7 +101,7 @@ padding-top: 4rem;
 	pointer-events: none;
 	background: center / contain no-repeat url(../imgs/hero/formkit_date.svg);
 }
-.dropdown__button::after {
+.dropdown__button_dec::after {
 	content: '';
 	position: absolute;
 	top: 1.6rem;
@@ -128,6 +128,16 @@ padding-top: 4rem;
 }
 .dropdown__item:hover {
 	background-color: $color_accent;
+}
+.dropdown_date__input{
+	width: 100%;
+	padding: 1rem 1.5rem;
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 1.5;
+	color: $color_ligh_grey;
+	background-color: transparent;
+	border: none;
 }
 
 .marked{

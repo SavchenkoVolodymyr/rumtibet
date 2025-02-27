@@ -12,6 +12,8 @@ function burger() {
 }
 burger();
 
+// for form
+
 document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	const dropdownButton = dropForAll.querySelector('.dropdown__button');
 	const dropdownList = dropForAll.querySelector('.dropdown__list');
@@ -21,6 +23,7 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	dropdownButton.addEventListener('click', function () {
 		dropdownList.classList.toggle('dropdown__list--visible');
 	});
+
 
 	document.addEventListener('click', function (e) {
 		if (e.target !== dropdownButton) {
@@ -38,6 +41,18 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 			});
 		});
 	}
+
+	if (dropdownButton.dataset.form == 'date') {
+		dropdownListAitems.forEach(function (listItem) {
+			listItem.addEventListener('click', function (e) {
+				e.stopPropagation();
+				// dropdownButton.innerText = this.innerText;
+				// dropdownInput.value = this.dataset.value;
+				// dropdownList.classList.remove('dropdown__list--visible');
+			});
+		});
+	}
+
 
 	if (dropdownButton.dataset.form == 'participant') {
 		dropdownListAitems.forEach(function (listItem) {
@@ -104,3 +119,4 @@ document.querySelectorAll('.slider').forEach(function (slider) {
 		}
 	}
 });
+
