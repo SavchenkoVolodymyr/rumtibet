@@ -6,7 +6,7 @@
 				с командой единомышленников
 			</h1>
             <form class="hero__form form" action="#">
-                <div class="form__item dropdown" > 
+                <div class="form__item dropdown" data-form = "location_form"> 
                     <button type="button"  class="dropdown__button dropdown__button_dec hero_form_text " data-form = "location">Локация для тура</button>
                       <ul class="dropdown__list">
                           <li data-value="location_1" class="dropdown__item hero_form_text">Локация 1</li>
@@ -18,7 +18,7 @@
                       <input type="text" value="" name ="for_location" class="dropdown__input_hidden">
                       <div class="form__input_deskr">выберите из списка</div>
                 </div>
-                <div class="form__item dropdown">
+                <div class="form__item dropdown"  data-form = "date_form">
                     <button type="button" class="dropdown__button dropdown__button_date hero_form_text" data-form = "date">Дата похода</button>
                     <div class="dropdown__list">
                         <input type="date" class="dropdown_date__input dropdown__item" name="date_start">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form__input_deskr">укажите диапазон</div>
                 </div>
-                <div class="form__item dropdown"> 
+                <div class="form__item dropdown"  data-form = "participant_form"> 
                     <button type="button" class="dropdown__button dropdown__button_dec hero_form_text" data-form = "participant">Участники</button>
                       <ul class="dropdown__list">
                           <li data-value="participant_1" class="dropdown__item hero_form_text">Участник 1</li>

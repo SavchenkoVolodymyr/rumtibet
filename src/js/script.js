@@ -22,8 +22,9 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 
 	dropdownButton.addEventListener('click', function () {
 		dropdownList.classList.toggle('dropdown__list--visible');
+		dropdownButton.classList.remove('invalid');
+		dropdownButton.classList.remove('valid');
 	});
-
 
 	document.addEventListener('click', function (e) {
 		if (e.target !== dropdownButton) {
@@ -46,13 +47,9 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 		dropdownListAitems.forEach(function (listItem) {
 			listItem.addEventListener('click', function (e) {
 				e.stopPropagation();
-				// dropdownButton.innerText = this.innerText;
-				// dropdownInput.value = this.dataset.value;
-				// dropdownList.classList.remove('dropdown__list--visible');
 			});
 		});
 	}
-
 
 	if (dropdownButton.dataset.form == 'participant') {
 		dropdownListAitems.forEach(function (listItem) {
@@ -77,11 +74,41 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 	}
 });
 
+function submitTheForm() {
+	const submitButton = document.querySelector('.form__submit_button');
+	const formlocation = document.querySelector('[data-form = "location_form"]');
+	const formDate = document.querySelector('[data-form = "date_form"]');
+	const formParticipant = document.querySelector('[data-form = "participant_form"]');
+
+	submitButton.addEventListener('click', function () {
+		let formLocationValue = formlocation.querySelector('[name ="for_location"]').value;
+		if (formLocationValue != '') {
+			formlocation.firstElementChild.classList.add('valid');
+		} else {
+			formlocation.firstElementChild.classList.add('invalid');
+		}
+
+		let dateStartValue = formDate.querySelector('[name="date_start"]').value;
+		let dateEndValue = formDate.querySelector('[name="date_end"]').value;
+		if (dateStartValue !== '' && dateEndValue !== '') {
+			formDate.firstElementChild.classList.add('valid');
+		} else {
+			formDate.firstElementChild.classList.add('invalid');
+		}
+
+		let formParticipantLength = formParticipant.querySelectorAll('.dropdown__input_hidden').length;
+		if (formParticipantLength >= 4) {
+			formParticipant.firstElementChild.classList.add('valid');
+		} else {
+			formParticipant.firstElementChild.classList.add('invalid');
+		}
+	});
+}
+submitTheForm();
+
 // for slider
 
 document.querySelectorAll('.slider').forEach(function (slider) {
-	console.log(slider);
-
 	let offset = 0;
 	const sliderLine = slider.querySelector('.slider_line');
 	const elemWidht = slider.querySelector('.slider_line__item').clientWidth;
@@ -119,4 +146,3 @@ document.querySelectorAll('.slider').forEach(function (slider) {
 		}
 	}
 });
-

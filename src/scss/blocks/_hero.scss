@@ -143,3 +143,11 @@ padding-top: 4rem;
 .marked{
 	color: $color_subtitle;
 }
+
+.invalid{
+	border: 3px solid red;
+}
+
+.valid{
+	border: 1px solid green;
+}
