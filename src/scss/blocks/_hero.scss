@@ -1,52 +1,79 @@
 @use './helpers/abstracts' as *;
 .hero__in {
-	
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
-	@include bp($point_2, min){
-	height: 82.1rem;	
+	@include bp($point_2, min) {
+		height: 82.1rem;
 	}
-	@include bp_min-max(768px, 1023px){
+	@include bp_min-max(768px, 1023px) {
 		height: 79rem;
 	}
-	@include bp($point_5){
+	@include bp($point_5) {
 		height: 60rem;
 	}
 }
 .hero__title {
-	
 	font-weight: 700;
 	line-height: 1.5;
 	letter-spacing: 0.02em;
 	margin-bottom: 4.1rem;
 	color: $color_ligh_grey;
-	@include bp($point_2, min){
+	@include bp($point_2, min) {
 		font-size: 5rem;
 	}
-	@include bp_min-max ($point_4, $point_3){
+	@include bp_min-max($point_4, $point_3) {
 		@include adapt_font(44, 50, 768, 1023);
 	}
-	@include bp_min-max ($point_6, $point_5){
+	@include bp_min-max($point_6, $point_5) {
 		@include adapt_font(26, 44, 480, 767);
 	}
-	@include bp ($point_7){
+	@include bp($point_7) {
 		@include adapt_font(32, 40, 375, 479);
 	}
-	
-	
 }
 .hero__form {
 	display: flex;
-	align-items: start;
-	justify-content: space-between;
-	border-radius: 1rem;
-	@include bp($point_2, min){
-padding-top: 4rem;
-	padding-inline: 4.3rem;
-	height: 16.1rem;
-	background: $color_hero_form;
-	backdrop-filter: blur(6px);	
+	@include bp($point_2, min) {
+		align-items: start;
+		justify-content: space-between;
+		border-radius: 1rem;
+		padding-top: 4rem;
+		padding-inline: 4.3rem;
+		height: 16.1rem;
+		background: $color_hero_form;
+		backdrop-filter: blur(6px);
+	}
+	@include bp($point_3) {
+		position: fixed;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		row-gap: 10rem;
+		z-index: 1100;
+
+		top: 0;
+		left: 0;
+		width: 100dvw;
+		height: 100dvh;
+		padding-top: 5rem;
+		padding-left: 3.4rem;
+		background-color: $color_accent;
+
+		transition: all 0.3s ease-in-out;
+		overflow: auto;
+
+		transform: translateX(-100dvw);
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+
+		&.active {
+			transform: translateX(0);
+			opacity: 1;
+			visibility: visible;
+			pointer-events: auto;
+		}
 	}
 }
 .form__input {
@@ -67,9 +94,6 @@ padding-top: 4rem;
 
 .form__item {
 	position: relative;
-	@include bp($point_3){
-		display: none;
-	}	
 }
 
 .dropdawn_date__box_hiden,
@@ -91,11 +115,11 @@ padding-top: 4rem;
 	cursor: pointer;
 	background: transparent;
 }
-.dropdown__button_date::after{
+.dropdown__button_date::after {
 	content: '';
 	position: absolute;
 	top: 1.6rem;
-	right:1.6rem;
+	right: 1.6rem;
 	width: 1.8rem;
 	height: 1.8rem;
 	pointer-events: none;
@@ -121,7 +145,12 @@ padding-top: 4rem;
 	border-radius: 0.8rem;
 	padding-inline: 1.4rem;
 	cursor: pointer;
-	background-color: rgba($color_accent, 0.75);
+	@include bp($point_2, min) {
+		background-color: rgba($color_accent, 0.75);
+	}
+	@include bp($point_3) {
+		background-color: $color_accent;
+	}
 	&.dropdown__list--visible {
 		display: block;
 	}
@@ -129,7 +158,7 @@ padding-top: 4rem;
 .dropdown__item:hover {
 	background-color: $color_accent;
 }
-.dropdown_date__input{
+.dropdown_date__input {
 	width: 100%;
 	padding: 1rem 1.5rem;
 	font-weight: 700;
@@ -140,14 +169,48 @@ padding-top: 4rem;
 	border: none;
 }
 
-.marked{
+.hiden_form_button {
+	position: absolute;
+	top: 4rem;
+	right: 3.3rem;
+	width: 3rem;
+	height: 3rem;
+	& > span {
+		position: absolute;
+		left: 0.4rem;
+		width: 2.1rem;
+		height: 0.4rem;
+		border-radius: 0.2rem;
+		background-color: $color_white;
+	}
+	& > span:first-child {
+		transform: rotate(45deg);
+	}
+	& > span:last-child {
+		transform: rotate(-45deg);
+	}
+	@include bp($point_2, min) {
+		display: none;
+	}
+}
+
+.button_for_mobile_w {
+	@include bp($point_2, min) {
+		display: none;
+	}
+	@include bp($point_3) {
+		display: block;
+	}
+}
+
+.marked {
 	color: $color_subtitle;
 }
 
-.invalid{
+.invalid {
 	border: 3px solid red;
 }
 
-.valid{
+.valid {
 	border: 1px solid green;
 }

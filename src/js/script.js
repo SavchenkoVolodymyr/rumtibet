@@ -12,6 +12,22 @@ function burger() {
 }
 burger();
 
+// for show form
+
+function showForm() {
+	const heroForm = document.querySelector('.hero__form');
+	const showFormButton = document.querySelector('.button_for_mobile');
+	const hidenFormButton = document.querySelector('.hiden_form_button');
+
+	showFormButton.addEventListener('click', function () {
+		heroForm.classList.add('active');
+	});
+	hidenFormButton.addEventListener('click', function () {
+		heroForm.classList.remove('active');
+	});
+}
+showForm();
+
 // for form
 
 document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
@@ -73,6 +89,8 @@ document.querySelectorAll('.dropdown').forEach(function (dropForAll) {
 		});
 	}
 });
+
+// for valid form
 
 function submitTheForm() {
 	const submitButton = document.querySelector('.form__submit_button');
